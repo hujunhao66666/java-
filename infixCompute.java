@@ -5,7 +5,7 @@ import java.awt.event.ActionListener;
 import java.io.*;
 import java.util.Scanner;
 
-public class Test{
+public class infixCompute{
     public static boolean isChar(char a){
         return a=='+' || a=='-' || a=='*' || a=='/';
     }
