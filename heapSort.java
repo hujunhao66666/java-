@@ -1,0 +1,41 @@
+public class headSort{
+    public static void main(String[]args){
+        int[]arr={4,6,8,5,9};
+        heapSort(arr);
+        
+    }
+
+    public static void heapSort(int arr[]){
+        int temp=0;
+        System.out.println("堆排序");
+        for (int i=arr.length/2-1;i>=0;i--){
+            adjustHeap(arr,i,arr.length);
+        }
+        for (int j=arr.length-1;j>0;j--){
+            temp=arr[j];
+            arr[j]=arr[0];
+            arr[0]=temp;
+            adjustHeap(arr,0,j);
+        }
+    }
+
+    public static void adjustHeap(int []arr,int i,int length){
+        int temp=arr[i];
+        for (int k=i*2+1;k<length;k=k*2+1){
+            if (k+1<length && arr[k+1]>arr[k]){
+                k++;
+            }
+            if (arr[k]>temp){
+                arr[i]=arr[k];
+                i=k;
+            }else{
+                break;
+            }
+        }
+        arr[i]=temp;
+        for (int j=0;j<arr.length;j++){
+            System.out.print(arr[j]+" ");
+        }
+        System.out.println();
+    }
+}
